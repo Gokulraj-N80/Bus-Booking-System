@@ -12,6 +12,7 @@ public class User {
     private String email;
     private String role;
     private String token;
+    private String password;
 
     public String getToken() {
         return token;
@@ -47,5 +48,13 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

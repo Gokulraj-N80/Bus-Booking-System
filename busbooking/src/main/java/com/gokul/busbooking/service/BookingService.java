@@ -41,6 +41,12 @@ public class BookingService {
 
         busRepository.save(bus);
 
+        booking.setBusName(bus.getBusName());
+        booking.setSource(bus.getSource());
+        booking.setDestination(bus.getDestination());
+        booking.setDepartureTime(bus.getDepartureTime());
+        booking.setDepartureDate(bus.getDepartureDate());
+
         return bookingRepository.save(booking);
     }
 }

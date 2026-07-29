@@ -32,7 +32,7 @@
 
             <a href="/oauth2/authorization/google">
                 <button class="btn">
-                    Login as User
+                    Continue with Google
                 </button>
             </a>
 
@@ -41,24 +41,67 @@
         <!-- ADMIN CARD -->
 
         <div class="login-card">
-
             <h2>👨‍💼 Admin</h2>
+            <p>Manage buses, edit routes and Delete Buses.</p>
+            <div style="background-color: #e9ecef; padding: 10px; border-radius: 5px; margin-bottom: 15px; font-size: 0.9em; color: #555;">
+                <strong>Demo Credentials:</strong><br>
+                Username: <code>admin</code><br>
+                Password: <code>pasword123</code>
+            </div>
 
-            <p>
-                Manage buses, edit routes and Delete Buses.
-            </p>
-
+            <form id="adminLoginForm">
+                <input type="text" id="adminUsername" placeholder="Username / Email" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                <input type="password" id="adminPassword" placeholder="Password" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                <button type="submit" class="btn" style="background: #28a745; margin-bottom: 10px; width: 100%;">
+                    Login
+                </button>
+                <div id="loginError" style="color: red; margin-bottom: 10px; display: none;">Invalid credentials</div>
+            </form>
+            
+            <hr style="margin: 15px 0;">
+            
             <a href="/oauth2/authorization/google">
                 <button class="btn">
-                    Login as Admin
+                    Continue with Google
                 </button>
             </a>
-
         </div>
 
     </div>
 
 </div>
+
+<script>
+    document.getElementById('adminLoginForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
+        
+        const username = document.getElementById('adminUsername').value;
+        const password = document.getElementById('adminPassword').value;
+        const errorDiv = document.getElementById('loginError');
+        errorDiv.style.display = 'none';
+        
+        try {
+            const response = await fetch('/api/auth/admin-login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            });
+            
+            if (response.ok) {
+                const data = await response.json();
+                window.location.href = `admin.html?token=${data.token}`;
+            } else {
+                errorDiv.style.display = 'block';
+            }
+        } catch (err) {
+            console.error(err);
+            errorDiv.innerText = 'Connection error';
+            errorDiv.style.display = 'block';
+        }
+    });
+</script>
 
 </body>
 </html>

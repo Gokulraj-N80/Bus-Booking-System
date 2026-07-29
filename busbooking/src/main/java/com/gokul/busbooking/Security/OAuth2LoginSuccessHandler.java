@@ -81,14 +81,14 @@ public class OAuth2LoginSuccessHandler
         if (dbUser.getRole().equals("ADMIN")) {
 
             response.sendRedirect(
-                    "http://localhost:8080/admin.html?token="
+                    "/admin.html?token="
                             + token
             );
 
         } else {
 
             response.sendRedirect(
-                    "http://localhost:8080/user.html?token="
+                    "/user.html?token="
                             + token
             );
         }

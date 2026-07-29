@@ -12,6 +12,8 @@ public class Bus {
     private String busName;
     private String source;
     private String destination;
+    private String departureTime;
+    private String departureDate;
     private int seats;
 
     public Bus() {
@@ -55,5 +57,21 @@ public class Bus {
 
     public void setSeats(int seats) {
         this.seats = seats;
+    }
+
+    public String getDepartureTime() {
+        return departureTime;
+    }
+
+    public void setDepartureTime(String departureTime) {
+        this.departureTime = departureTime;
+    }
+
+    public String getDepartureDate() {
+        return departureDate;
+    }
+
+    public void setDepartureDate(String departureDate) {
+        this.departureDate = departureDate;
     }
 }

@@ -14,6 +14,12 @@
     👤 User Dashboard
 
     <button class="logout-btn"
+            style="margin-right: 10px; background: #17a2b8;"
+            onclick="loadMyTickets()">
+        🎫 My Tickets
+    </button>
+    
+    <button class="logout-btn"
             onclick="logout()">
         Logout
     </button>
@@ -120,6 +126,10 @@
                 </p>
 
                 <p>
+                🕒 ${bus.departureTime} | 📅 ${bus.departureDate}
+                </p>
+
+                <p>
                 💺 Available Seats :
                 ${bus.seats}
                 </p>
@@ -205,6 +215,10 @@
                 📍 ${bus.source}
                 →
                 ${bus.destination}
+                </p>
+
+                <p>
+                🕒 ${bus.departureTime} | 📅 ${bus.departureDate}
                 </p>
 
                 <p>
@@ -323,10 +337,22 @@
                 console.log("BOOKED =", data);
 
                 document.getElementById("message").innerHTML = `
-            <div class="card">
-                <h2 class="success">
-                    ✅ Bus Booked Successfully
+            <div class="card" style="border: 2px dashed #4CAF50; background: #f9fff9;">
+                <h2 class="success" style="margin-bottom: 15px;">
+                    ✅ Ticket Booked Successfully!
                 </h2>
+                <div style="text-align: left; background: white; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">
+                    <h3 style="margin: 0 0 10px 0; color: #333;">🎫 TICKET RECEIPT</h3>
+                    <p><strong>Booking ID:</strong> #${data.id}</p>
+                    <p><strong>Passenger:</strong> ${data.passengerName}</p>
+                    <p><strong>Mobile:</strong> ${data.mobileNumber}</p>
+                    <hr style="margin: 10px 0;">
+                    <p><strong>Bus:</strong> ${data.busName}</p>
+                    <p><strong>Route:</strong> ${data.source} → ${data.destination}</p>
+                    <p><strong>Time:</strong> ${data.departureTime} | <strong>Date:</strong> ${data.departureDate}</p>
+                    <p><strong>Seats Booked:</strong> ${data.seatsBooked}</p>
+                </div>
+                <button class="btn" style="margin-top: 15px;" onclick="document.getElementById('message').innerHTML=''">Close</button>
             </div>
         `;
 
@@ -347,6 +373,39 @@
         `;
             });
     }
+    function loadMyTickets() {
+        document.getElementById("message").innerHTML = "";
+        fetch("/booking/my-bookings", {
+            headers: {
+                Authorization: "Bearer " + token
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            let html = "<h2 class='title'>🎫 My Tickets</h2>";
+            
+            if(data.length === 0) {
+                html += "<h3 style='color:gray; text-align:center;'>No tickets booked yet.</h3>";
+            }
+            
+            data.forEach(ticket => {
+                html += `
+                <div class="card" style="border: 2px solid #17a2b8; text-align: left; margin-bottom: 15px;">
+                    <h3 style="margin: 0 0 10px 0; color: #17a2b8;">Booking #${ticket.id}</h3>
+                    <p><strong>Passenger:</strong> ${ticket.passengerName} (${ticket.mobileNumber})</p>
+                    <hr style="margin: 10px 0;">
+                    <p><strong>Bus:</strong> ${ticket.busName}</p>
+                    <p><strong>Route:</strong> ${ticket.source} → ${ticket.destination}</p>
+                    <p><strong>Time:</strong> ${ticket.departureTime} | <strong>Date:</strong> ${ticket.departureDate}</p>
+                    <p><strong>Seats Booked:</strong> ${ticket.seatsBooked}</p>
+                </div>
+                `;
+            });
+            
+            document.getElementById("busContainer").innerHTML = html;
+        });
+    }
+
     function logout()
     {
         window.location.href="/";

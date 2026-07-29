@@ -44,6 +44,16 @@
                 type="number"
                 id="seats"
                 placeholder="Seats">
+                
+        <input
+                type="text"
+                id="departureTime"
+                placeholder="Time (e.g. 08:00 PM)">
+                
+        <input
+                type="date"
+                id="departureDate"
+                placeholder="Date">
 
         <button
                 class="btn"
@@ -108,7 +118,15 @@
 
                     seats:
                     document.getElementById(
-                        "seats").value
+                        "seats").value,
+                        
+                    departureTime:
+                    document.getElementById(
+                        "departureTime").value,
+                        
+                    departureDate:
+                    document.getElementById(
+                        "departureDate").value
                 })
             })
 
@@ -167,6 +185,10 @@
                 💺 Seats :
                 ${bus.seats}
                 </p>
+                
+                <p>
+                🕒 ${bus.departureTime} | 📅 ${bus.departureDate}
+                </p>
 
                 <br>
 
@@ -177,7 +199,9 @@
                 '${bus.busName}',
                 '${bus.source}',
                 '${bus.destination}',
-                ${bus.seats}
+                ${bus.seats},
+                '${bus.departureTime}',
+                '${bus.departureDate}'
                 )">
 
                 Edit
@@ -239,7 +263,9 @@
         busName,
         source,
         destination,
-        seats)
+        seats,
+        departureTime,
+        departureDate)
     {
         document.getElementById(
             "message")
@@ -269,6 +295,16 @@
         type="number"
         id="editSeats"
         value="${seats}">
+        
+        <input
+        type="text"
+        id="editDepartureTime"
+        value="${departureTime}">
+        
+        <input
+        type="date"
+        id="editDepartureDate"
+        value="${departureDate}">
 
         <button
         class="btn"
@@ -312,7 +348,15 @@
 
                     seats:
                     document.getElementById(
-                        "editSeats").value
+                        "editSeats").value,
+                        
+                    departureTime:
+                    document.getElementById(
+                        "editDepartureTime").value,
+                        
+                    departureDate:
+                    document.getElementById(
+                        "editDepartureDate").value
                 })
             })
 
