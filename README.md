@@ -67,7 +67,7 @@ The **Bus Ticket Booking System** is a full-stack web application designed to br
       </td>
       <td align="center" width="50%">
         <b>Ticket Receipt</b><br/>
-        <img src="images/Ticket.png" style="border-radius: 8px; margin-top: 10px; width: 100%; max-width: 300px;"/>
+        <img src="images/Ticket.png" style="border-radius: 8px; margin-top: 20px; width: 75%; max-width: 300px;"/>
       </td>
     </tr>
   </table>
