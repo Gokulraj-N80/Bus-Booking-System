@@ -39,23 +39,38 @@ The **Bus Ticket Booking System** is a full-stack web application designed to br
 ## Visual Showcase
 
 <div align="center">
-  <h3>Login Portal</h3>
-  <img src="images/Login%20page.png" alt="Login Page" width="800" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px;"/>
-
-  <h3>User Dashboard</h3>
-  <img src="images/User%20Page.png" alt="User Dashboard" width="800" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px;"/>
-
-  <h3>Ticket Receipt</h3>
-  <img src="images/Ticket.png" alt="Ticket Receipt" width="800" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px;"/>
-
-  <h3>My Tickets</h3>
-  <img src="images/My%20Tickets.png" alt="My Tickets" width="800" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px;"/>
-
-  <h3>Admin Dashboard</h3>
-  <img src="images/Admin%20Dashboard.png" alt="Admin Dashboard" width="800" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px;"/>
-
-  <h3>Admin Operations</h3>
-  <img src="images/Admin%20Operation.png" alt="Admin Operations" width="800" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px;"/>
+  <table>
+    <tr>
+      <td align="center" width="50%">
+        <b>Login Portal</b><br/>
+        <img src="images/Login%20page.png" style="border-radius: 8px; margin-top: 10px; width: 100%; max-width: 450px;"/>
+      </td>
+      <td align="center" width="50%">
+        <b>User Dashboard</b><br/>
+        <img src="images/User%20Page.png" style="border-radius: 8px; margin-top: 10px; width: 100%; max-width: 450px;"/>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" width="50%">
+        <b>Ticket Receipt</b><br/>
+        <img src="images/Ticket.png" style="border-radius: 8px; margin-top: 10px; width: 100%; max-width: 450px;"/>
+      </td>
+      <td align="center" width="50%">
+        <b>My Tickets Dashboard</b><br/>
+        <img src="images/My%20Tickets.png" style="border-radius: 8px; margin-top: 10px; width: 100%; max-width: 450px;"/>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" width="50%">
+        <b>Admin Fleet Overview</b><br/>
+        <img src="images/Admin%20Dashboard.png" style="border-radius: 8px; margin-top: 10px; width: 100%; max-width: 450px;"/>
+      </td>
+      <td align="center" width="50%">
+        <b>Admin Operations</b><br/>
+        <img src="images/Admin%20Operation.png" style="border-radius: 8px; margin-top: 10px; width: 100%; max-width: 450px;"/>
+      </td>
+    </tr>
+  </table>
 </div>
 
 ---
