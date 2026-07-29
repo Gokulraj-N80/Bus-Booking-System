@@ -36,6 +36,28 @@ The **Bus Ticket Booking System** is a full-stack web application designed to br
 
 ---
 
+## Visual Showcase
+
+### Login Portal
+![Login Page](images/Login%20page.png)
+
+### User Dashboard
+![User Dashboard](images/User%20Page.png)
+
+### Ticket Receipt
+![Ticket Receipt](images/Ticket.png)
+
+### My Tickets
+![My Tickets](images/My%20Tickets.png)
+
+### Admin Dashboard
+![Admin Dashboard](images/Admin%20Dashboard.png)
+
+### Admin Operations
+![Admin Operations](images/Admin%20Operation.png)
+
+---
+
 ## Architecture
 
 This project strictly adheres to the **Model-View-Controller (MVC)** design pattern. 
