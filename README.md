@@ -29,7 +29,7 @@ The **Bus Ticket Booking System** is a full-stack web application designed to br
 - **My Tickets:** A dedicated dashboard to track all your past and upcoming journeys.
 
 ### For Administrators
-- **Secure Access:** Dedicated login portal (Demo: `admin` / `pasword123`).
+- **Secure Access:** Dedicated login portal (Demo: `admin` / `password123`).
 - **Route Management:** Add new buses with complete details: Name, Route, Capacity, **Time**, and **Date**.
 - **Live Editing:** Update bus schedules or modify seating capacities dynamically.
 - **Fleet Control:** Remove inactive or canceled bus routes from the system instantly.

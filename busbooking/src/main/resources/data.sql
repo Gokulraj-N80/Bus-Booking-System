@@ -1,6 +1,6 @@
 -- Insert Admin User
 INSERT INTO users (email, role, password) 
-VALUES ('admin', 'ADMIN', 'pasword123') 
+VALUES ('admin', 'ADMIN', 'password123') 
 ON DUPLICATE KEY UPDATE role='ADMIN';
 
 -- Insert Some Default Buses for Tamil Nadu
