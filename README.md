@@ -46,28 +46,28 @@ The **Bus Ticket Booking System** is a full-stack web application designed to br
         <img src="images/Login%20page.png" style="border-radius: 8px; margin-top: 10px; width: 100%; max-width: 450px;"/>
       </td>
       <td align="center" width="50%">
+        <b>Admin Fleet Overview</b><br/>
+        <img src="images/Admin%20Dashboard.png" style="border-radius: 8px; margin-top: 10px; width: 100%; max-width: 450px;"/>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" width="50%">
+        <b>Admin Operations</b><br/>
+        <img src="images/Admin%20Operation.png" style="border-radius: 8px; margin-top: 10px; width: 100%; max-width: 450px;"/>
+      </td>
+      <td align="center" width="50%">
         <b>User Dashboard</b><br/>
         <img src="images/User%20Page.png" style="border-radius: 8px; margin-top: 10px; width: 100%; max-width: 450px;"/>
       </td>
     </tr>
     <tr>
       <td align="center" width="50%">
-        <b>Ticket Receipt</b><br/>
-        <img src="images/Ticket.png" style="border-radius: 8px; margin-top: 10px; width: 100%; max-width: 450px;"/>
-      </td>
-      <td align="center" width="50%">
         <b>My Tickets Dashboard</b><br/>
-        <img src="images/My%20Tickets.png" style="border-radius: 8px; margin-top: 10px; width: 100%; max-width: 450px;"/>
-      </td>
-    </tr>
-    <tr>
-      <td align="center" width="50%">
-        <b>Admin Fleet Overview</b><br/>
-        <img src="images/Admin%20Dashboard.png" style="border-radius: 8px; margin-top: 10px; width: 100%; max-width: 450px;"/>
+        <img src="images/My%20Tickets.png" style="border-radius: 8px; margin-top: 10px; width: 100%; max-width: 300px;"/>
       </td>
       <td align="center" width="50%">
-        <b>Admin Operations</b><br/>
-        <img src="images/Admin%20Operation.png" style="border-radius: 8px; margin-top: 10px; width: 100%; max-width: 450px;"/>
+        <b>Ticket Receipt</b><br/>
+        <img src="images/Ticket.png" style="border-radius: 8px; margin-top: 10px; width: 100%; max-width: 300px;"/>
       </td>
     </tr>
   </table>
