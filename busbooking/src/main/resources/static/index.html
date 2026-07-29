@@ -24,14 +24,15 @@
 
         <div class="login-card">
 
-            <h2>👤 User</h2>
+            <h2>👤 User Dashboard</h2>
 
             <p>
-                Search buses and book tickets.
+                Search available buses, book tickets instantly, and view your digital ticket receipts securely.
             </p>
 
-            <a href="/oauth2/authorization/google">
-                <button class="btn">
+            <a href="/oauth2/authorization/google" style="text-decoration: none;">
+                <button class="btn btn-google">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="Google">
                     Continue with Google
                 </button>
             </a>
@@ -41,27 +42,29 @@
         <!-- ADMIN CARD -->
 
         <div class="login-card">
-            <h2>👨‍💼 Admin</h2>
-            <p>Manage buses, edit routes and Delete Buses.</p>
-            <div style="background-color: #e9ecef; padding: 10px; border-radius: 5px; margin-bottom: 15px; font-size: 0.9em; color: #555;">
+            <h2>👨‍💼 Admin Portal</h2>
+            <p>Manage fleet schedules, edit bus routes, and oversee all system operations.</p>
+            
+            <div class="demo-box">
                 <strong>Demo Credentials:</strong><br>
                 Username: <code>admin</code><br>
                 Password: <code>pasword123</code>
             </div>
 
             <form id="adminLoginForm">
-                <input type="text" id="adminUsername" placeholder="Username / Email" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
-                <input type="password" id="adminPassword" placeholder="Password" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
-                <button type="submit" class="btn" style="background: #28a745; margin-bottom: 10px; width: 100%;">
+                <input type="text" id="adminUsername" placeholder="Username / Email" required>
+                <input type="password" id="adminPassword" placeholder="Password" required>
+                <div id="loginError" style="display: none;">Invalid credentials!</div>
+                <button type="submit" class="btn">
                     Login
                 </button>
-                <div id="loginError" style="color: red; margin-bottom: 10px; display: none;">Invalid credentials</div>
             </form>
             
-            <hr style="margin: 15px 0;">
+            <div class="divider">OR</div>
             
-            <a href="/oauth2/authorization/google">
-                <button class="btn">
+            <a href="/oauth2/authorization/google" style="text-decoration: none;">
+                <button class="btn btn-google">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="Google">
                     Continue with Google
                 </button>
             </a>
