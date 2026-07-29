@@ -81,51 +81,33 @@ This project strictly adheres to the **Model-View-Controller (MVC)** design patt
 
 ```mermaid
 graph TD
-    %% Left Side Layer Labels
-    subgraph Layers ["Architecture"]
-        L1[/"<b>VIEW</b>"\]
-        L2[/"<b>CONTROLLER</b>"\]
-        L3[/"<b>SERVICE</b>"\]
-        L4[/"<b>MODEL & DATABASE</b>"\]
-        
-        L1 ~~~ L2
-        L2 ~~~ L3
-        L3 ~~~ L4
-    end
-
     %% Frontend / View Layer
-    subgraph View ["View (HTML/CSS/JS)"]
+    subgraph View ["🖥️ VIEW (HTML/CSS/JS)"]
         UI_Home[Login Portal]
         UI_User[User Dashboard]
         UI_Admin[Admin Dashboard]
     end
 
     %% Controller Layer
-    subgraph Controllers ["Controllers (Spring Boot)"]
+    subgraph Controllers ["⚙️ CONTROLLER (Spring Boot)"]
         Ctrl_Auth[AuthController]
         Ctrl_Bus[BusController]
         Ctrl_Booking[BookingController]
     end
 
     %% Service Layer
-    subgraph Services ["Services (Java)"]
+    subgraph Services ["🛠️ SERVICE (Java)"]
         Svc_Bus[Bus Service]
         Svc_Book[Booking Service]
     end
 
     %% Model and Database Layer
-    subgraph ModelDatabase ["Model & Database (MySQL/JPA)"]
+    subgraph ModelDatabase ["🗄️ MODEL & DATABASE (MySQL/JPA)"]
         Entity[JPA Entities]
         DB_Users[(Users Table)]
         DB_Bus[(Bus Table)]
         DB_Booking[(Booking Table)]
     end
-
-    %% Invisible alignment links to force left-side placement
-    L1 ~~~ UI_Home
-    L2 ~~~ Ctrl_Auth
-    L3 ~~~ Svc_Bus
-    L4 ~~~ Entity
 
     %% Connections
     UI_Home -->|OAuth2 / Creds| Ctrl_Auth
