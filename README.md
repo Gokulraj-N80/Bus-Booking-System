@@ -139,6 +139,4 @@ A permanent ledger of all tickets generated.
 
 ---
 
-<div align="center">
-  <p>Developed for seamless travel management.</p>
-</div>
+
