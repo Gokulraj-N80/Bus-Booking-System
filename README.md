@@ -84,8 +84,8 @@ graph TD
     %% Frontend / View Layer
     subgraph View ["🖥️ VIEW (HTML/CSS/JS)"]
         UI_Home[Login Portal]
-        UI_User["User Dashboard<br/>(User Operations)"]
-        UI_Admin["Admin Dashboard<br/>(Admin Operations)"]
+        UI_User["User Dashboard<br/>(Search, Book, Tickets)"]
+        UI_Admin["Admin Dashboard<br/>(Add, Edit, Delete Bus)"]
     end
 
     %% Controller Layer
