@@ -38,23 +38,25 @@ The **Bus Ticket Booking System** is a full-stack web application designed to br
 
 ## Visual Showcase
 
-### Login Portal
-![Login Page](images/Login%20page.png)
+<div align="center">
+  <h3>Login Portal</h3>
+  <img src="images/Login%20page.png" alt="Login Page" width="800" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px;"/>
 
-### User Dashboard
-![User Dashboard](images/User%20Page.png)
+  <h3>User Dashboard</h3>
+  <img src="images/User%20Page.png" alt="User Dashboard" width="800" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px;"/>
 
-### Ticket Receipt
-![Ticket Receipt](images/Ticket.png)
+  <h3>Ticket Receipt</h3>
+  <img src="images/Ticket.png" alt="Ticket Receipt" width="800" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px;"/>
 
-### My Tickets
-![My Tickets](images/My%20Tickets.png)
+  <h3>My Tickets</h3>
+  <img src="images/My%20Tickets.png" alt="My Tickets" width="800" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px;"/>
 
-### Admin Dashboard
-![Admin Dashboard](images/Admin%20Dashboard.png)
+  <h3>Admin Dashboard</h3>
+  <img src="images/Admin%20Dashboard.png" alt="Admin Dashboard" width="800" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px;"/>
 
-### Admin Operations
-![Admin Operations](images/Admin%20Operation.png)
+  <h3>Admin Operations</h3>
+  <img src="images/Admin%20Operation.png" alt="Admin Operations" width="800" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px;"/>
+</div>
 
 ---
 
