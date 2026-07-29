@@ -85,10 +85,12 @@ graph TD
     subgraph Layers ["Architecture"]
         L1[/"<b>VIEW</b>"\]
         L2[/"<b>CONTROLLER</b>"\]
-        L3[/"<b>MODEL / SERVICE</b>"\]
-        L4[/"<b>DATABASE</b>"\]
+        L3[/"<b>SERVICE</b>"\]
+        L4[/"<b>MODEL & DATABASE</b>"\]
         
-        L1 --- L2 --- L3 --- L4
+        L1 ~~~ L2
+        L2 ~~~ L3
+        L3 ~~~ L4
     end
 
     %% Frontend / View Layer
@@ -105,15 +107,15 @@ graph TD
         Ctrl_Booking[BookingController]
     end
 
-    %% Model / Service Layer
-    subgraph Model ["Model & Services (Java/JPA)"]
+    %% Service Layer
+    subgraph Services ["Services (Java)"]
         Svc_Bus[Bus Service]
         Svc_Book[Booking Service]
-        Entity[JPA Entities]
     end
 
-    %% Database Layer
-    subgraph Database ["Database (MySQL)"]
+    %% Model and Database Layer
+    subgraph ModelDatabase ["Model & Database (MySQL/JPA)"]
+        Entity[JPA Entities]
         DB_Users[(Users Table)]
         DB_Bus[(Bus Table)]
         DB_Booking[(Booking Table)]
@@ -123,7 +125,7 @@ graph TD
     L1 ~~~ UI_Home
     L2 ~~~ Ctrl_Auth
     L3 ~~~ Svc_Bus
-    L4 ~~~ DB_Users
+    L4 ~~~ Entity
 
     %% Connections
     UI_Home -->|OAuth2 / Creds| Ctrl_Auth
