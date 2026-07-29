@@ -81,6 +81,16 @@ This project strictly adheres to the **Model-View-Controller (MVC)** design patt
 
 ```mermaid
 graph TD
+    %% Left Side Layer Labels
+    subgraph Layers ["Architecture"]
+        L1[/"<b>VIEW</b>"\]
+        L2[/"<b>CONTROLLER</b>"\]
+        L3[/"<b>MODEL / SERVICE</b>"\]
+        L4[/"<b>DATABASE</b>"\]
+        
+        L1 --- L2 --- L3 --- L4
+    end
+
     %% Frontend / View Layer
     subgraph View ["View (HTML/CSS/JS)"]
         UI_Home[Login Portal]
@@ -108,6 +118,12 @@ graph TD
         DB_Bus[(Bus Table)]
         DB_Booking[(Booking Table)]
     end
+
+    %% Invisible alignment links to force left-side placement
+    L1 ~~~ UI_Home
+    L2 ~~~ Ctrl_Auth
+    L3 ~~~ Svc_Bus
+    L4 ~~~ DB_Users
 
     %% Connections
     UI_Home -->|OAuth2 / Creds| Ctrl_Auth
