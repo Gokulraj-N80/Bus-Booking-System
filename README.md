@@ -1,86 +1,144 @@
-# 🚌 Bus Ticket Booking System
+<div align="center">
+  <h1>🚍 Bus Ticket Booking System</h1>
+  <p><i>A comprehensive, modern web application for managing and booking bus tickets effortlessly.</i></p>
 
-Welcome to the **Bus Ticket Booking System**, a comprehensive web application built with Spring Boot (Java) and a vanilla JavaScript frontend. This system allows passengers to browse and book bus tickets seamlessly while giving administrators full control over bus schedules and routes.
+  <!-- Badges -->
+  <img src="https://img.shields.io/badge/Spring_Boot-F2F4F9?style=for-the-badge&logo=spring-boot" alt="Spring Boot" />
+  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white" alt="Java" />
+  <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+</div>
 
----
+<br/>
 
-## ✨ Key Features
+## 🎯 Overview
 
-### 🏠 Home Page (Login Portal)
-The starting point of the application where users authenticate to access their respective dashboards:
-- **Admin Login:** Admins can log in using dedicated credentials (`admin` / `pasword123`) or via Google OAuth2.
-- **User Login:** Users log in securely with a single click using **Continue with Google** (OAuth2 Integration).
-
-### 👤 User Dashboard
-A dedicated space for regular passengers:
-- **Browse Buses:** View all available buses, complete with routes, departure times, and travel dates.
-- **Search Functionality:** Filter buses by specifying a `Source` and `Destination`.
-- **Book Tickets:** Reserve seats on a selected bus by providing passenger details and mobile number.
-- **Ticket Receipts:** Instantly receive a beautifully formatted ticket receipt upon successful booking.
-- **My Tickets History:** A dedicated tab where users can view all their past and upcoming bookings, permanently linked to their account.
-
-### 👨‍💼 Admin Dashboard
-A robust management console for system administrators:
-- **Add Buses:** Create new bus schedules by entering the Bus Name, Source, Destination, Seat Capacity, Departure Time, and Departure Date.
-- **Edit Buses:** Update the details of existing buses (e.g., change the departure time or increase seats).
-- **Delete Buses:** Remove canceled or outdated bus routes from the system.
-- **Real-time View:** Instantly see all active buses currently available to users.
+The **Bus Ticket Booking System** is a full-stack web application designed to bridge the gap between passengers and bus operators. With a clean UI and robust backend architecture, it provides an intuitive booking experience for users and powerful management tools for administrators.
 
 ---
 
-## 🏗️ MVC Architecture
+## ✨ Features at a Glance
 
-This project strictly follows the **Model-View-Controller (MVC)** design pattern to separate business logic from the user interface:
+### 👥 For Users (Passengers)
+- 🔐 **One-Click Login:** Secure authentication using Google OAuth2.
+- 🔍 **Search & Filter:** Find buses seamlessly by entering your `Source` and `Destination`.
+- 🎟️ **Instant Booking:** Reserve seats in real-time with comprehensive passenger details.
+- 🧾 **Digital Receipts:** Get an aesthetically pleasing, detailed ticket receipt immediately after booking.
+- 📅 **My Tickets:** A dedicated dashboard to track all your past and upcoming journeys.
 
-### 1. View (Frontend)
-Located in `src/main/resources/static/`, the presentation layer is built with HTML, CSS, and Vanilla JS.
-- `index.html`: The central login portal.
-- `user.html`: The dashboard for passengers to book and view tickets.
-- `admin.html`: The control panel for administrators.
-
-### 2. Controller (API Routing)
-The REST Controllers act as the bridge between the frontend View and the backend Model/Services.
-- `AuthController`: Handles admin credential verification and issues JWT tokens.
-- `BusController`: Manages endpoints for fetching, creating, updating, and deleting buses.
-- `BookingController`: Handles booking requests and retrieves the "My Tickets" history based on the logged-in user.
-
-### 3. Model (Database & Entities)
-Spring Data JPA Entities map Java objects directly to the MySQL database tables, while Service classes (`BusService`, `BookingService`) handle the core business logic, such as decrementing available seats when a booking is made.
+### 👑 For Administrators
+- 🛡️ **Secure Access:** Dedicated login portal (Demo: `admin` / `pasword123`).
+- ➕ **Route Management:** Add new buses with complete details: Name, Route, Capacity, **Time**, and **Date**.
+- ✏️ **Live Editing:** Update bus schedules or modify seating capacities dynamically.
+- 🗑️ **Fleet Control:** Remove inactive or canceled bus routes from the system instantly.
 
 ---
 
-## 🗄️ Database Tables (MySQL)
+## 🏗️ Architecture
 
-The database schema is designed to track users, available buses, and ticketing history efficiently.
+This project strictly adheres to the **Model-View-Controller (MVC)** design pattern. 
 
-### 1. `users` Table
-Stores all authenticated personnel in the system.
-- **`id`**: Primary Key (Auto-incremented)
-- **`email`**: The user's Google Email or Admin Email (Unique)
-- **`password`**: Stored securely (or in plain text for the demo admin)
-- **`role`**: Defines permissions (`ADMIN` or `USER`)
-- **`token`**: Stores the JWT token for session validation
+```mermaid
+graph TD
+    %% Frontend / View Layer
+    subgraph View ["🖼️ View (HTML/CSS/JS)"]
+        UI_Home[Login Portal]
+        UI_User[User Dashboard]
+        UI_Admin[Admin Dashboard]
+    end
 
-### 2. `bus` Table
-Stores all active bus routes and schedules.
-- **`id`**: Primary Key (Auto-incremented)
-- **`bus_name`**: Name of the travels (e.g., SETC, KPN Travels)
-- **`source`**: Starting city
-- **`destination`**: Arrival city
-- **`seats`**: Number of currently available seats
-- **`departure_time`**: Time of departure (e.g., 08:00 PM)
-- **`departure_date`**: Date of travel (e.g., 2023-11-20)
+    %% Controller Layer
+    subgraph Controllers ["🎛️ Controllers (Spring Boot)"]
+        Ctrl_Auth[AuthController]
+        Ctrl_Bus[BusController]
+        Ctrl_Booking[BookingController]
+    end
 
-### 3. `booking` Table
-Stores all generated tickets. It contains snapshots of the bus data so tickets remain valid even if the original bus is deleted.
-- **`id`**: Primary Key (Booking/Ticket ID)
-- **`user_id`**: Foreign Key linking to the `users` table
-- **`bus_id`**: Reference to the booked bus
-- **`bus_name`**: Snapshot of the bus name
-- **`source`**: Snapshot of the starting city
-- **`destination`**: Snapshot of the arrival city
-- **`departure_time`**: Snapshot of the departure time
-- **`departure_date`**: Snapshot of the departure date
-- **`passenger_name`**: Name of the person travelling
-- **`mobile_number`**: Contact number for the ticket
-- **`seats_booked`**: How many seats were reserved in this transaction
+    %% Model / Service Layer
+    subgraph Model ["⚙️ Model & Services (Java/JPA)"]
+        Svc_Bus[Bus Service]
+        Svc_Book[Booking Service]
+        Entity[JPA Entities]
+    end
+
+    %% Database Layer
+    subgraph Database ["🗄️ Database (MySQL)"]
+        DB_Users[(Users Table)]
+        DB_Bus[(Bus Table)]
+        DB_Booking[(Booking Table)]
+    end
+
+    %% Connections
+    UI_Home -->|OAuth2 / Creds| Ctrl_Auth
+    UI_User -->|Search & Book| Ctrl_Bus
+    UI_User -->|My Tickets| Ctrl_Booking
+    UI_Admin -->|CRUD Operations| Ctrl_Bus
+
+    Ctrl_Auth --> Entity
+    Ctrl_Bus --> Svc_Bus
+    Ctrl_Booking --> Svc_Book
+
+    Svc_Bus --> Entity
+    Svc_Book --> Entity
+
+    Entity --> DB_Users
+    Entity --> DB_Bus
+    Entity --> DB_Booking
+```
+
+---
+
+## 🗄️ Database Schema
+
+The core of the system is structured around three robust database tables to ensure data integrity and permanent record keeping.
+
+### 👤 `users` Table
+Manages authentication and user roles.
+
+| Column | Type | Description |
+| :--- | :--- | :--- |
+| 🔑 `id` | Integer | Primary Key (Auto-incremented) |
+| 📧 `email` | String | Unique user email (Google or Admin) |
+| 🔒 `password` | String | Secured access password |
+| 🎭 `role` | Enum | Access level (`ADMIN` or `USER`) |
+| 🎫 `token` | String | JWT session token |
+
+### 🚌 `bus` Table
+Contains the active fleet and scheduling data.
+
+| Column | Type | Description |
+| :--- | :--- | :--- |
+| 🔑 `id` | Integer | Primary Key (Auto-incremented) |
+| 🏷️ `bus_name` | String | Travels/Operator Name |
+| 📍 `source` | String | Starting location |
+| 🏁 `destination` | String | Arrival location |
+| 💺 `seats` | Integer | Available seating capacity |
+| 🕒 `departure_time` | String | Scheduled time (e.g., 08:00 PM) |
+| 📅 `departure_date` | String | Scheduled date (e.g., 2023-11-20) |
+
+### 🎟️ `booking` Table
+A permanent ledger of all tickets generated.
+
+> [!NOTE]
+> The booking table stores **snapshots** of the bus data (like time, date, and route). This ensures that even if an administrator deletes a bus from the active schedule, the user's ticket receipt remains completely intact!
+
+| Column | Type | Description |
+| :--- | :--- | :--- |
+| 🔑 `id` | Integer | Primary Key (Booking/Ticket ID) |
+| 🔗 `user_id` | Integer | Foreign Key to the `users` table |
+| 🚌 `bus_name` | String | Snapshot of the Operator Name |
+| 🛣️ `source` | String | Snapshot of the Origin |
+| 🛑 `destination`| String | Snapshot of the Destination |
+| 🕒 `departure_time`| String | Snapshot of Departure Time |
+| 📅 `departure_date`| String | Snapshot of Departure Date |
+| 🧑‍💼 `passenger_name`| String | Name of the travelling passenger |
+| 📱 `mobile_number` | String | Passenger's contact number |
+| 🎫 `seats_booked`| Integer | Total seats reserved |
+
+---
+
+<div align="center">
+  <p>Developed with ❤️ for seamless travel management.</p>
+</div>
